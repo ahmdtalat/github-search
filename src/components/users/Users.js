@@ -69,13 +69,17 @@ class Users extends Component {
   render() {
     const { users } = this.state;
     return (
-      <div>
+      <div style={userStyle}>
         {users.map(user => {
-          return <UserItem id={user.id} login={user.login} avatar_url={user.avatar_url} html_url={user.html_url} />;
+          return <UserItem user={user} key={user.id} />;
         })}
       </div>
     );
   }
 }
-
+const userStyle = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3,1fr)',
+  gridGap: '2rem'
+};
 export default Users;
